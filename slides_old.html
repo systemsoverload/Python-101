@@ -1,0 +1,244 @@
+<!DOCTYPE html>
+
+<!--
+  Google HTML5 slide template
+
+  Authors: Luke Mahé (code)
+           Marcin Wichary (code and design)
+           
+           Dominic Mazzoni (browser compatibility)
+           Charles Chen (ChromeVox support)
+
+  URL: http://code.google.com/p/html5slides/
+-->
+
+<html>
+  <head>
+    <title>Presentation</title>
+
+    <meta charset='utf-8'>
+    <script
+      src='http://html5slides.googlecode.com/svn/trunk/slides.js'></script>
+  </head>
+  
+  <style>
+    /* Your individual styles here, or just use inline styles if that’s
+       what you want. */
+      .slides article   { 
+        background-image: url("http://www.python.org/images/python-logo.gif") !important; 
+        background-color:white;
+      }
+      .slides article.biglogo{
+        background-image: url("http://www.python.org/community/logos/python-logo-master-v3-TM.png") !important;
+      }
+  </style>
+
+  <body style='display: none'>
+
+    <section class='slides layout-regular template-default'>
+      
+      <!-- Your slides (<article>s) go here. Delete or comment out the
+           slides below. -->
+        
+        
+      
+      <article class='biglogo'>
+      </article>
+
+      <article>
+        <h1>
+          Python 101
+        </h1>
+        <p>
+          TJ Kells
+          <br>
+          April 25, 2013
+        </p>
+      </article>
+      
+      
+      <article>
+        <h3>
+          What is python?
+        </h3>
+        <div class="build" style="font-size: .70em;line-height:30px;padding-top:30px;">
+          <span>
+            "Python is an interpreted, object-oriented, high-level programming language with dynamic semantics.
+            Its high-level built in data structures, combined with dynamic typing and dynamic binding,
+            make it very attractive for Rapid Application Development, as well as for use as a scripting or 
+            glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes
+            readability and therefore reduces the cost of program maintenance. Python supports modules and packages,
+            which encourages program modularity and code reuse. The Python interpreter and the extensive standard
+            library are available in source or binary form without charge for all major platforms, and can be
+            freely distributed."
+            <br>
+            <br>
+            Source: <a href="http://www.python.org/doc/essays/blurb.html">What is Python? Executive Summary</a>
+          </span>
+        </div>
+      </article>
+      <article class='smaller'>
+        <h3>
+          "Python's <span style="color:red">simple, easy to learn syntax</span>
+          emphasizes readability and therefore reduces the cost of program maintenance."
+        </h3>
+        <ul class="build">
+          <li>
+            Simple, easy to learn syntax
+              <section class="build">
+                <pre style="margin-top:2px;margin-bottom:5px;">                
+#Lets say hi                
+print "Hello World."
+>>Hello World.
+                </pre>
+                <pre style="margin-top:2px;margin-bottom:5px;">                 
+def addVariables(x, y=2):
+  '''
+    This method has a default argument value which makes
+    its second argument optional, neat!
+  '''
+  print x + y
+
+addVariables(2)
+>> 4
+addVariables(2,3)
+>> 5
+                </pre>
+            </section>
+          </li>
+        </ul>
+      </article>
+
+
+      <article class='smaller'>
+        <h3>
+         "Python is an <span style="color:red">interpreted</span>, object-oriented, high-level programming language with dynamic semantics."
+        </h3>
+        <ul class="build">
+          <li>
+            Interpreted
+            <span>...kinda</span>
+            <ul class="build">
+              <li>Not actually pure interpretation ( ie. bash )</li>
+              <li>CPython uses bytecode compilation, code "compiled" into bytecode and then read by "virtual machine"</li>
+              <li>(The preceding statement is over-simplified, 75% accurate)</li>
+              <li>More information here ( <a href="http://tech.blog.aknin.name/2010/04/02/pythons-innards-introduction/">http://tech.blog.aknin.name/2010/04/02/pythons-innards-introduction/</a> )</li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+         "Python is an interpreted, <span style="color:red">object-oriented</span>, high-level programming language with dynamic semantics."
+        </h3>
+        <ul class="build" style="margin-top:10px;">
+          <li class="build">
+            Everythings an object!
+            <section>
+              <pre style="margin-top:2px;margin-bottom:5px;">
+x = 5
+dir(x)
+>> ['__abs__', '__add__', '__and__', '__class__', '__cmp__', '__coerce__'
+...SNIP... ,'__init__' ...SNIP...
+'bit_length', 'conjugate', 'denominator', 'imag', 'numerator', 'real']
+x.real
+>> 5
+              </pre>
+            </section>
+            <section>
+              <ul><li>Simple Class System</li></ul>
+              <pre style="margin-top:2px;margin-bottom:5px;">
+class Person(object): 
+  def __init__(self, name, age): 
+    self.name = name 
+    self.age = age 
+
+  def is_old(self): 
+    return self.age > 40 
+          
+person = Person('TJ Kells', 28)
+print person.is_old()
+>> False
+              </pre>
+            </section>
+          </li>
+        </ul>
+      </article>
+
+      <article class='smaller'>
+        <h3>
+         "Python is an interpreted, object-oriented, high-level programming language with <span style="color:red">dynamic semantics.</span>"
+        </h3>
+        <ul class="build">
+          <li>
+            Dynamic Semantics
+            <ul class="build" style="font-size:.75em;">
+              <li style="margin-bottom:0px">Strongly and dynamically typed ( Strong Typing != Strict Typing )!</li>
+              <li style="margin-bottom:0px">
+                Interpreter does not munge types
+                <section>
+                <pre style="margin-top:2px;margin-bottom:5px;">
+"x"+3
+Traceback (most recent call last):
+  File "&#60;stdin&#62;", line 1, in &#60;module&#62;
+TypeError: cannot concatenate 'str' and 'int' objects
+                </pre>
+                </section>
+
+                
+              </li>
+              <li style="margin-bottom:0px">
+                Supports dynamic variable assignment
+                <section>
+                  <pre style="margin-top:2px;margin-bottom:5px;">
+x = "Hello"
+print x
+>> Hello
+x = 5
+print x
+>> 5
+                  </pre>
+                </section>
+              </li>
+            </ul>
+          </li>
+        </ul>
+      </article>
+
+      <article>
+        <h3>
+          Why?
+        </h3>
+        <ul class="build">
+          <li>
+            Easy to learn
+          </li>
+          <li>
+            Easy to Read
+          </li>
+          <li>
+            Batteries Included
+          </li>
+        </ul>
+
+        <div class="build">
+          <p>Any element with child nodes can build.</p>
+          <p>It doesn't have to be a list.</p>
+        </div>
+      </article>
+      
+      <article>
+        <h3>
+          Thank you!
+        </h3>
+        
+        <ul>
+          <li>
+            <a href='http://www.corvisa.com'>www.corvisa.com</a>
+        </ul>
+      </article>
+    </section>
+
+  </body>
+</html>
