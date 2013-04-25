@@ -1,0 +1,312 @@
+<!--
+Google IO 2012/2013 HTML5 Slide Template
+
+Authors: Eric Bidelman <ebidel@gmail.com>
+         Luke Mahé <lukem@google.com>
+
+URL: https://code.google.com/p/io-2012-slides
+-->
+<!DOCTYPE html>
+<html>
+<head>
+  <title></title>
+  <meta charset="utf-8">
+  <meta http-equiv="X-UA-Compatible" content="chrome=1">
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0, minimum-scale=1.0">-->
+  <!--<meta name="viewport" content="width=device-width, initial-scale=1.0">-->
+  <!--This one seems to work all the time, but really small on ipad-->
+  <!--<meta name="viewport" content="initial-scale=0.4">-->
+  <meta name="apple-mobile-web-app-capable" content="yes">
+  <link rel="stylesheet" media="all" href="theme/css/default.css">
+  <link rel="stylesheet" media="only screen and (max-device-width: 480px)" href="theme/css/phone.css">
+  <base target="_blank"> <!-- This amazingness opens all links in a new tab. -->
+  <script data-main="js/slides" src="js/require-1.0.8.min.js"></script>
+</head>
+<body style="opacity: 0">
+
+<slides class="layout-widescreen">
+
+  <slide class="logoslide nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/python.png" style="height:203px;width:601px;"></span>
+    </article>
+  </slide>
+
+  <slide class="title-slide segue nobackground">
+    <aside class="gdbar"><img src="images/python_85.png"></aside>
+    <!-- The content of this hgroup is replaced programmatically through the slide_config.json. -->
+    <hgroup class="auto-fadein">
+      <h1 data-config-title><!-- populated from slide_config.json --></h1>
+      <h2 data-config-subtitle><!-- populated from slide_config.json --></h2>
+      <p data-config-presenter><!-- populated from slide_config.json --></p>
+    </hgroup>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h2>What is python?</h2>
+    </hgroup>
+    <article>
+      <ul>
+        <li style="font-size: .75em;line-height:30px;padding-top:30px;">
+            "Python is an interpreted, object-oriented, high-level programming language with dynamic semantics.
+            Its high-level built in data structures, combined with dynamic typing and dynamic binding,
+            make it very attractive for Rapid Application Development, as well as for use as a scripting or 
+            glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes
+            readability and therefore reduces the cost of program maintenance. Python supports modules and packages,
+            which encourages program modularity and code reuse. The Python interpreter and the extensive standard
+            library are available in source or binary form without charge for all major platforms, and can be
+            freely distributed."
+            <br>
+            <br>
+            Source: <a href="http://www.python.org/doc/essays/blurb.html">What is Python? Executive Summary</a>
+        </li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">"Python's <span style="color:red">simple, easy to learn syntax</span> 
+        emphasizes readability and therefore reduces the cost of program maintenance."</h3>
+    </hgroup>
+    <article class="smaller build" >
+      <p>Simple, easy to learn syntax</p>
+      <pre class="prettyprint" data-lang="python">
+#Lets say hi                
+print "Hello World."
+>> 'Hello World.'
+      </pre>
+      <pre class="prettyprint" data-lang="python">
+def addVariables(x, y=2):
+  """This method has a default argument.
+  This makes the second argument optional, neat!
+  """
+  print x + y
+
+addVariables(2)
+>> 4
+addVariables(2,3)
+>> 5
+      </pre>    
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">"Python's simple, easy to learn syntax <span style="color:red">emphasizes readability</span> and therefore reduces the cost of program maintenance."</h3>
+    </hgroup>
+    <article class="smaller">
+      <ul class="build">
+        <li>Throw away your {} blocks!</li>
+        <li>Throw away your ;'s!</li>
+        <li>Embrace indentation
+          <ul class="build">
+            <li>Never Again Struggle To Read This:</li>
+            <li>
+              <pre class="prettyprint" data-lang="javascript">
+if( gravy ){
+  if( cheddar ){
+   foo( gravy, cheddar );
+}
+else{
+  bacon();
+}}
+              </pre>
+            </li> 
+          </ul>
+        </li>
+        <li>Follow the <a href="http://www.python.org/dev/peps/pep-0008/">PEP8</a>
+          <ul class="build">
+            <li>...to the grave</li>
+            <li>4 SPACES to indent</li>
+          </ul>
+        </li>
+        <li></li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">"Python is an <span style="color:red">interpreted</span>, object-oriented, high-level programming language with dynamic semantics."</h3>
+    </hgroup>
+    <article class="smaller">
+      <ul class="build">
+        <li>
+          Interpreted
+          <span>...kinda</span>
+          <ul class="build">
+            <li>Not actually pure interpretation ( ie. bash )</li>
+            <li>CPython uses bytecode compilation, code "compiled" into bytecode and then read by "virtual machine"</li>
+            <li>(The preceding statement is over-simplified, 75% accurate)</li>
+            <li>More information here ( <a href="http://tech.blog.aknin.name/2010/04/02/pythons-innards-introduction/">http://tech.blog.aknin.name/2010/04/02/pythons-innards-introduction/</a> )</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">"Python is an interpreted, <span style="color:red">object-oriented</span>, high-level programming language with dynamic semantics."</h3>
+    </hgroup>
+    <article class="smaller">
+      <ul class="build" style="margin-top:10px;">
+        <li>
+          Everythings an object!
+          <pre style="margin-bottom:0px;" class="prettyprint" data-lang="python">
+x = 5
+dir(x)
+>> ['__abs__', '__add__', '__and__', '__class__', '__cmp__', '__coerce__'
+...SNIP... ,'__init__' ...SNIP...
+'bit_length', 'conjugate', 'denominator', 'imag', 'numerator', 'real']
+x.real
+>> 5
+          </pre>
+        </li>
+        <li>Simple Class System
+          <pre style="margin-bottom:0px;" class="prettyprint" data-lang="python">
+class Person(object): 
+  def __init__(self, name, age): 
+    self.name = name 
+    self.age = age 
+    self.null_property = None
+    self.false_property = False
+    self.true_property = True
+
+  def is_old(self): 
+    return self.age > 40 
+          
+person = Person('TJ Kells', 28)
+print person.is_old()
+>> False
+              </pre>
+        </li>
+        </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">"Python is an interpreted, object-oriented, high-level programming language with <span style="color:red">dynamic semantics.</span>"</h3>
+    </hgroup>
+    <article class="smaller">
+      <ul class="build">
+        <li>
+          Dynamic Semantics
+          <ul class="build" style="font-size:.75em;">
+            <li style="margin-bottom:0px">Strongly and dynamically typed ( Strong Typing != Strict Typing )!</li>
+            <li style="margin-bottom:0px">
+              Interpreter does not munge types
+              <pre class="prettyprint" data-lang="python">
+"x"+3
+Traceback (most recent call last):
+  File "&#60;stdin&#62;", line 1, in &#60;module&#62;
+TypeError: cannot concatenate 'str' and 'int' objects
+              </pre>
+
+                
+              </li>
+              <li style="margin-bottom:0px">
+                Supports dynamic variable assignment
+                <pre class="prettyprint" data-lang="python">
+x = "Hello"
+print x
+>> Hello
+x = 5
+print x
+>> 5
+                </pre>
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">Its <span style="color:red">high-level built in data <del>structures</del> types</span>, combined with dynamic typing and dynamic binding"</h3>
+    </hgroup>
+    <article class="smaller">
+      <h4>Strings</h4>
+      <ul class="build">
+        <li>
+          Strings can be wrapped in ", ', ''', or """
+        </li>
+        <pre class="prettyprint" data-lang="python">
+#These are all valid strings
+string_a = "This is a string"
+string_b = 'This is a string'
+string_c = """This is a string"""
+string_d = '''This is a string'''
+        </pre>
+        <li>
+          """ and ''' can be multiple lines
+        </li>
+        <li>
+           PEP8 recommends using "triple doubles" ( """ ) for docstrings
+        </li>
+        <li>
+          Docstrings defined in this way become accessible via the __doc__ attr of that object
+        </li>
+        <pre class="prettyprint" data-lang="python">
+def gravyMaker():
+  """ This method makes the gravy """
+  return "Gravy."
+
+gravyMaker.__doc__
+>> 'This method makes the gravy'
+        </pre>        
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide class="thank-you-slide segue nobackground">
+    <aside class="gdbar right"><img src="images/python_85.png"></aside>
+    <article class="flexbox vleft auto-fadein">
+      <h2>&lt;Thank You!&gt;</h2>
+      <p>TJ Kells</p>
+      <p>tj.kells@corvisa.com</p>
+    </article>
+    <p class="auto-fadein" data-config-contact>
+      <!-- populated from slide_config.json -->
+    </p>
+  </slide>
+
+  <slide class="logoslide dark nobackground">
+    <article class="flexbox vcenter">
+      <span><img src="images/python.png" style="height:203px;width:601px;"></span>
+    </article>
+  </slide>
+
+  <slide class="backdrop"></slide>
+
+</slides>
+
+<script>
+var _gaq = _gaq || [];
+_gaq.push(['_setAccount', 'UA-XXXXXXXX-1']);
+_gaq.push(['_trackPageview']);
+
+(function() {
+  var ga = document.createElement('script'); ga.type = 'text/javascript'; ga.async = true;
+  ga.src = ('https:' == document.location.protocol ? 'https://ssl' : 'http://www') + '.google-analytics.com/ga.js';
+  var s = document.getElementsByTagName('script')[0]; s.parentNode.insertBefore(ga, s);
+})();
+</script>
+
+<!--[if IE]>
+  <script src="http://ajax.googleapis.com/ajax/libs/chrome-frame/1/CFInstall.min.js"></script>
+  <script>CFInstall.check({mode: 'overlay'});</script>
+<![endif]-->
+</body>
+</html>
