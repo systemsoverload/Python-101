@@ -72,7 +72,9 @@ URL: https://code.google.com/p/io-2012-slides
     </hgroup>
     <article class="smaller build" >
       <p>Simple, easy to learn syntax</p>
-      <li>...and now, the world's most simple 'Hello World'</li>
+      <ul>
+        <li>...and now, the simplest 'Hello World'</li>
+      </ul>
       <pre class="prettyprint" data-lang="python">
 #Lets say hi
 print "Hello World."
@@ -89,24 +91,27 @@ print "Hello World."
     </hgroup>
     <article class="smaller build" >
       <p>Simple, easy to learn syntax</p>
-      <li>Function blocks begin with the keyword def followed by the function name.</li>
-      <li>Indentation is syntax</li>
-      <li>`return` keyword causes function to exit and pass value back to its caller</li>
-      <li>Function arguments can have default values!</li>
-      <pre class="prettyprint" data-lang="python">
+      <ul class="build">
+        <li>Function blocks begin with the keyword def followed by the function name.</li>
+        <li>Indentation is syntax</li>
+        <li>`return` keyword causes function to exit and pass value back to its caller</li>
+        <li>Function arguments can have default values!</li>
+      </ul>
+      <pre class="prettyprint" data-lang="python" style="line-height:19px;">
 def addVariables(x, y=2):
   """This method has a default argument.
   This makes the second argument optional, neat!
   """
-  if 1 + 1 == 2:
-    return x + y
+  if y >= 500:
+    return "That number is too damn high!"
   else:
-    return "Now how did we get here??"
+    return x + y
 
 print addVariables(2)
 >> 4
-print addVariables(2,3)
->> 5
+some_var = addVariables(2,51252)
+print some_var
+>> "That number is too damn high!"
       </pre>
     </article>
   </slide>
@@ -142,6 +147,43 @@ else{
             <li>4 SPACES to indent</li>
           </ul>
         </li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">"Python's simple, easy to learn syntax <span style="color:red">emphasizes readability</span> and therefore reduces the cost of program maintenance."</h3>
+    </hgroup>
+    <article class="smaller">
+      <ul class="build">
+        <li>All block statements are denoted by indentation</li>
+        <pre class="prettyprint" data-lang="python">
+if my_var == "gravy":
+  print "bacon"
+elif:
+  print "fail"
+
+for thing in things:
+  print thing
+        </pre>
+      <li>
+        You can still do it wrong if you insist on it...
+      </li>
+      <pre class="prettyprint" data-lang="python" style="line-height:18px;">
+def perm(l):
+# Compute the list of all permutations of l
+  if len(l) &#060= 1:
+    return [l]
+   r = []
+    for i in range(len(l)):
+             s = l[:i] + l[i+1:]
+             p = perm(s)
+             for x in p:
+              r.append(l[i:i+1] + x)
+    return r
+      </pre>
       </ul>
     </article>
   </slide>
@@ -230,6 +272,7 @@ print my_list[-1]
       <ul class="build">
         <li>Hash-able structure</li>
         <li>Variable length, heterogeneous, arbitrarily nestable</li>
+        <li>Keys can be any immutable type ( string, int, float, tuple )</li>
         <li class="build">
           Iterable
           <ul class="build" style="font-size:.85em;">
@@ -252,10 +295,9 @@ print my_list[-1]
     <hgroup>
       <h3 style="line-height:32px;">Its <span style="color:red">high-level built in data structures</span>, combined with dynamic typing and dynamic binding"</h3>
     </hgroup>
-    <article class="smaller" >
-      <h4>Dictionaries (Continued)</h4>
-      <ul class="build">
-        <pre class="prettyprint" style="font-size:.64em;line-height:13px">
+    <article class="smaller" style="margin-top:5px;">
+      <ul>
+        <pre class="prettyprint" style="font-size:.64em;line-height:13px" data-lang="python">
 me = {}
 me['first_name'] = 'TJ'
 
@@ -326,9 +368,8 @@ for key, value in me.iteritems():
         Python supports <span style="color:red">modules and packages</span>, which encourages program modularity and code reuse</h3>
     </hgroup>
     <article class="smaller" >
-      <h4>Modules</h4>
       <ul class="build">
-        <pre class="prettyprint">
+        <pre class="prettyprint" data-lang="python">
 #/home/tkells/MyModule.py
 def say_hi( world_part ):
   print "Hello : ", world_part
@@ -336,7 +377,7 @@ def say_hi( world_part ):
 
 my_name = 'TJ Kells'
         </pre>
-        <pre class="prettyprint">
+        <pre class="prettyprint" data-lang="python">
 #/home/tkells/arbitrary.py
 import MyModule
 
@@ -367,13 +408,13 @@ say_hi('World!')
         <li>Created by adding __init__.py to directory</li>
         <li>Collection of modules in directories that give a package hierarchy</li>
         <li>Allows dotted notation import of sub-modules -ex Module.Submodule.Function()</li>
-        <pre class="prettyprint">
+        <pre class="prettyprint" data-lang="python">
 #/home/tkells/MyPackage/Extras/MyModule.py
 def say_hi( world_part ):
   print "Hello : ", world_part
   return
         </pre>
-        <pre class="prettyprint">
+        <pre class="prettyprint" data-lang="python">
 #/home/tkells/arbitrary.py
 from MyPackage.Extras import MyModule
 
