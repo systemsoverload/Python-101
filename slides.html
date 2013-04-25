@@ -51,7 +51,7 @@ URL: https://code.google.com/p/io-2012-slides
         <li style="font-size: .75em;line-height:30px;padding-top:30px;">
             "Python is an interpreted, object-oriented, high-level programming language with dynamic semantics.
             Its high-level built in data structures, combined with dynamic typing and dynamic binding,
-            make it very attractive for Rapid Application Development, as well as for use as a scripting or 
+            make it very attractive for Rapid Application Development, as well as for use as a scripting or
             glue language to connect existing components together. Python's simple, easy to learn syntax emphasizes
             readability and therefore reduces the cost of program maintenance. Python supports modules and packages,
             which encourages program modularity and code reuse. The Python interpreter and the extensive standard
@@ -68,13 +68,13 @@ URL: https://code.google.com/p/io-2012-slides
 
   <slide>
     <hgroup>
-      <h3 style="line-height:32px;">"Python's <span style="color:red">simple, easy to learn syntax</span> 
+      <h3 style="line-height:32px;">"Python's <span style="color:red">simple, easy to learn syntax</span>
         emphasizes readability and therefore reduces the cost of program maintenance."</h3>
     </hgroup>
     <article class="smaller build" >
       <p>Simple, easy to learn syntax</p>
       <pre class="prettyprint" data-lang="python">
-#Lets say hi                
+#Lets say hi
 print "Hello World."
 >> 'Hello World.'
       </pre>
@@ -92,7 +92,7 @@ addVariables(2)
 >> 4
 addVariables(2,3)
 >> 5
-      </pre>    
+      </pre>
     </article>
   </slide>
 
@@ -107,7 +107,7 @@ addVariables(2,3)
         <li>Throw away your ;'s!</li>
         <li>Embrace indentation
           <ul class="build">
-            <li>Never Again Struggle To Read This:</li>
+            <li>Never again struggle to read this:</li>
             <li>
               <pre class="prettyprint" data-lang="javascript">
 if( gravy ){
@@ -118,7 +118,7 @@ else{
   bacon();
 }}
               </pre>
-            </li> 
+            </li>
           </ul>
         </li>
         <li>Follow the <a href="http://www.python.org/dev/peps/pep-0008/">PEP8</a>
@@ -129,104 +129,6 @@ else{
         </li>
         <li></li>
       </ul>
-    </article>
-  </slide>
-
-
-  <slide>
-    <hgroup>
-      <h3 style="line-height:32px;">"Python is an <span style="color:red">interpreted</span>, object-oriented, high-level programming language with dynamic semantics."</h3>
-    </hgroup>
-    <article class="smaller">
-      <ul class="build">
-        <li>
-          Interpreted
-          <span>...kinda</span>
-          <ul class="build">
-            <li>Not actually pure interpretation ( ie. bash )</li>
-            <li>CPython uses bytecode compilation, code "compiled" into bytecode and then read by "virtual machine"</li>
-            <li>(The preceding statement is over-simplified, 75% accurate)</li>
-            <li>More information here ( <a href="http://tech.blog.aknin.name/2010/04/02/pythons-innards-introduction/">http://tech.blog.aknin.name/2010/04/02/pythons-innards-introduction/</a> )</li>
-          </ul>
-        </li>
-      </ul>
-    </article>
-  </slide>
-
-
-  <slide>
-    <hgroup>
-      <h3 style="line-height:32px;">"Python is an interpreted, <span style="color:red">object-oriented</span>, high-level programming language with dynamic semantics."</h3>
-    </hgroup>
-    <article class="smaller">
-      <ul class="build" style="margin-top:10px;">
-        <li>
-          Everythings an object!
-          <pre style="margin-bottom:0px;" class="prettyprint" data-lang="python">
-x = 5
-dir(x)
->> ['__abs__', '__add__', '__and__', '__class__', '__cmp__', '__coerce__'
-...SNIP... ,'__init__' ...SNIP...
-'bit_length', 'conjugate', 'denominator', 'imag', 'numerator', 'real']
-x.real
->> 5
-          </pre>
-        </li>
-        <li>Simple Class System
-          <pre style="margin-bottom:0px;" class="prettyprint" data-lang="python">
-class Person(object): 
-  def __init__(self, name, age): 
-    self.name = name 
-    self.age = age 
-
-  def is_old(self):
-      return self.age > 40 
-          
-person = Person('TJ Kells', 28)
-print person.is_old()
->> False
-              </pre>
-        </li>
-        </ul>
-    </article>
-  </slide>
-
-
-  <slide>
-    <hgroup>
-      <h3 style="line-height:32px;">"Python is an interpreted, object-oriented, high-level programming language with <span style="color:red">dynamic semantics.</span>"</h3>
-    </hgroup>
-    <article class="smaller">
-      <ul class="build">
-        <li>
-          Dynamic Semantics
-          <ul class="build" style="font-size:.75em;">
-            <li style="margin-bottom:0px">Strongly and dynamically typed ( Strong Typing != Strict Typing )!</li>
-            <li style="margin-bottom:0px">
-              Interpreter does not munge types
-              <pre class="prettyprint" data-lang="python">
-"x"+3
-Traceback (most recent call last):
-  File "&#60;stdin&#62;", line 1, in &#60;module&#62;
-TypeError: cannot concatenate 'str' and 'int' objects
-              </pre>
-
-                
-              </li>
-              <li style="margin-bottom:0px">
-                Supports dynamic variable assignment
-                <pre class="prettyprint" data-lang="python">
-x = "Hello"
-print x
->> Hello
-x = 5
-print x + 5
->> 10
-                </pre>
-              </li>
-            </ul>
-          </li>
-        </ul>
     </article>
   </slide>
 
@@ -264,7 +166,7 @@ def gravyMaker():
 
 gravyMaker.__doc__
 >> 'This method makes the gravy'
-        </pre>        
+        </pre>
       </ul>
     </article>
   </slide>
@@ -314,9 +216,19 @@ print my_list[-1]
       <ul class="build">
         <li>Hash-able structure</li>
         <li>Variable length, heterogeneous, arbitrarily nestable</li>
-        <li>Iterable ( .iteritems() in 2.x, .items() in 3.x )</li>
+        <li class="build">
+          Iterable
+          <ul class="build" style="font-size:.85em;">
+            <li>Use .iteritems() in Python 2.6+</li>
+            <li>Use .items() in Python 3.x and 2.5- </li>
+          </ul>
+        </li>
         <li>Subscriptable</li>
-        <li>Unordered ( Python 2.7 added OrderedDict to Collections module )</li>
+        <li>Unordered
+          <ul class="build" style="font-size:.85em;">
+            <li>Python 2.7 added OrderedDict to Collections module</li>
+          </ul>
+        </li>
       </ul>
     </article>
   </slide>
@@ -329,7 +241,7 @@ print my_list[-1]
     <article class="smaller" >
       <h4>Dictionaries (Continued)</h4>
       <ul class="build">
-        <pre class="prettyprint" style="font-size:.6em;line-height:15px">
+        <pre class="prettyprint" style="font-size:.64em;line-height:13px">
 me = {}
 me['first_name'] = 'TJ'
 
@@ -344,15 +256,247 @@ me.update({
 print me.get('last_name')
 >> 'Kells'
 
+#Dict keys can be any immutable type
 me[43.03] = 'latitude'
 me[87.90] = 'longitude'
 
 me["friends"] = ["Arthur", "Ford", "Zaphod", "Trillian"]
 
+me["car"] = {
+  "make": "Subaru"
+  ,"model": "Outback"
+}
+me.get('car').get('make')
+>> 'Subaru'
+
+for key, value in me.iteritems():
+  print "{0} => {1}".format( key, value )
+
+>> first_name => TJ
+>> last_name => Kells
+>> 87.9 => longitude
+>> 43.03 => latitude
+>> car => {'make': 'Subaru', 'model': 'Outback'}
+>> hair => Brown
+>> friends => ['Arthur', 'Ford', 'Zaphod', 'Trillian']
         </pre>
       </ul>
     </article>
   </slide>
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">
+        Python supports <span style="color:red">modules and packages</span>, which encourages program modularity and code reuse</h3>
+    </hgroup>
+    <article class="smaller" >
+      <h4>Modules</h4>
+      <ul class="build">
+        <li>Any valid python file can be a module</li>
+        <li>Logically organize code</li>
+        <li class="build">Module can contain
+          <ul class="build">
+            <li>Variables/Properties</li>
+            <li>Methods</li>
+            <li>Classes</li>
+            <li>Anything!</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">
+        Python supports <span style="color:red">modules and packages</span>, which encourages program modularity and code reuse</h3>
+    </hgroup>
+    <article class="smaller" >
+      <h4>Modules</h4>
+      <ul class="build">
+        <pre class="prettyprint">
+#/home/tkells/MyModule.py
+def say_hi( world_part ):
+  print "Hello : ", world_part
+  return
+
+my_name = 'TJ Kells'
+        </pre>
+        <pre class="prettyprint">
+#/home/tkells/arbitrary.py
+import MyModule
+
+MyModule.say_hi('World!')
+>> 'Hello World!'
+
+print MyModule.my_name
+>> 'TJ Kells'
+
+from MyModule import say_hi
+
+say_hi('World!')
+>> 'Hello World!'
+        </pre>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">
+        Python supports <span style="color:red">modules and packages</span>, which encourages program modularity and code reuse</h3>
+    </hgroup>
+    <article class="smaller" >
+      <h4>Packages</h4>
+      <ul class="build">
+        <li>Created by adding __init__.py to directory</li>
+        <li>Collection of modules in directories that give a package hierarchy</li>
+        <li>Allows dotted notation import of sub-modules -ex Module.Submodule.Function()</li>
+        <pre class="prettyprint">
+#/home/tkells/MyPackage/Extras/MyModule.py
+def say_hi( world_part ):
+  print "Hello : ", world_part
+  return
+        </pre>
+        <pre class="prettyprint">
+#/home/tkells/arbitrary.py
+from MyPackage.Extras import MyModule
+
+MyModule.say_hi('World!')
+>> 'Hello World!'
+
+import MyPackage
+MyPackage.Extras.MyModule.say_hi('World!')
+>> 'Hello World!'
+        </pre>
+      </ul>
+    </article>
+  </slide>
+
+
+<slide>
+    <hgroup>
+      <h3 style="line-height:32px;">"Python is an <span style="color:red">interpreted</span>, object-oriented, high-level programming language with dynamic semantics."</h3>
+    </hgroup>
+    <article class="smaller">
+      <ul class="build">
+        <li>
+          Interpreted
+          <span>...kinda</span>
+          <ul class="build">
+            <li>Not actually pure interpretation ( ie. bash )</li>
+            <li>CPython uses bytecode compilation, code "compiled" into bytecode and then read by "virtual machine"</li>
+            <li>(The preceding statement is over-simplified, 75% accurate)</li>
+            <li>More information here ( <a href="http://tech.blog.aknin.name/2010/04/02/pythons-innards-introduction/">http://tech.blog.aknin.name/2010/04/02/pythons-innards-introduction/</a> )</li>
+          </ul>
+        </li>
+      </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">"Python is an interpreted, <span style="color:red">object-oriented</span>, high-level programming language with dynamic semantics."</h3>
+    </hgroup>
+    <article class="smaller">
+      <ul class="build" style="margin-top:10px;">
+        <li>
+          Everythings an object!
+          <pre style="margin-bottom:0px;" class="prettyprint" data-lang="python">
+x = 5
+dir(x)
+>> ['__abs__', '__add__', '__and__', '__class__', '__cmp__', '__coerce__'
+...SNIP... ,'__init__' ...SNIP...
+'bit_length', 'conjugate', 'denominator', 'imag', 'numerator', 'real']
+x.real
+>> 5
+          </pre>
+        </li>
+        <li>Simple Class System
+          <pre style="margin-bottom:0px;" class="prettyprint" data-lang="python">
+class Person(object):
+  def __init__(self, name, age):
+    self.name = name
+    self.age = age
+
+  def is_old(self):
+      return self.age > 40
+
+person = Person('TJ Kells', 28)
+print person.is_old()
+>> False
+              </pre>
+        </li>
+        </ul>
+    </article>
+  </slide>
+
+
+  <slide>
+    <hgroup>
+      <h3 style="line-height:32px;">"Python is an interpreted, object-oriented, high-level programming language with <span style="color:red">dynamic semantics.</span>"</h3>
+    </hgroup>
+    <article class="smaller">
+      <ul class="build">
+        <li>
+          Dynamic Semantics
+          <ul class="build" style="font-size:.75em;">
+            <li style="margin-bottom:0px">Strongly and dynamically typed ( Strong Typing != Strict Typing )!</li>
+            <li style="margin-bottom:0px">
+              Interpreter does not munge types
+              <pre class="prettyprint" data-lang="python">
+"x"+3
+Traceback (most recent call last):
+  File "&#60;stdin&#62;", line 1, in &#60;module&#62;
+TypeError: cannot concatenate 'str' and 'int' objects
+              </pre>
+
+
+              </li>
+              <li style="margin-bottom:0px">
+                Supports dynamic variable assignment
+                <pre class="prettyprint" data-lang="python">
+x = "Hello"
+print x
+>> Hello
+x = 5
+print x + 5
+>> 10
+                </pre>
+              </li>
+            </ul>
+          </li>
+        </ul>
+    </article>
+  </slide>
+
+  <slide>
+    <hgroup>
+      <h3>Resources</h3>
+    </hgroup>
+    <article>
+      <ul>
+        <li>
+          Official Python 2.x Documentation - <a href="http://docs.python.org/2">http://docs.python.org/2</a>
+        </li>
+        <li>
+          Learn Python The Hard Way - <a href="http://learnpythonthehardway.org/book/ex40.html">http://learnpythonthehardway.org/</a>
+        </li>
+        <li>
+          Learnpython.org - <a href="http://www.learnpython.org/">http://www.learnpython.org/</a>
+        </li>
+        <li>
+          Codecademy - <a href="http://www.codecademy.com/">http://www.codecademy.com/</a>
+        </li>
+        <li>
+          Requests - <a href="http://docs.python-requests.org/en/latest/">http://docs.python-requests.org/en/latest/</a>
+        </li>
+      </ul>
+    </article>
+  </slide>
+
 
 
   <slide class="thank-you-slide segue nobackground">
@@ -365,12 +509,6 @@ me["friends"] = ["Arthur", "Ford", "Zaphod", "Trillian"]
     <p class="auto-fadein" data-config-contact>
       <!-- populated from slide_config.json -->
     </p>
-  </slide>
-
-  <slide class="logoslide dark nobackground">
-    <article class="flexbox vcenter">
-      <span><img src="images/python.png" style="height:203px;width:601px;"></span>
-    </article>
   </slide>
 
   <slide class="backdrop"></slide>
