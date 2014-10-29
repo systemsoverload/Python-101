@@ -23,8 +23,9 @@ var SLIDE_CONFIG = {
   // Author information
   presenters: [{
     name: 'TJ Kells',
-    company: 'Software Developer, Corvisa',
-    github: 'http://github.com/systemsoverload'
+    company: 'Principal Engineer, CorvisaCloud',
+    github: 'http://github.com/systemsoverload',
+    www: 'http://kells.tj'
   }/*, {
     name: 'Second Name',
     company: 'Job Title, Google',
